@@ -109,6 +109,59 @@ Quick cURL Samples
   curl -X DELETE "https://social-api.hushstackcambodia.site/api/delete-account" \
     -H "Authorization: Bearer <token>"
   ```
+- Resend OTP:
+  ```bash
+  curl -X POST "https://social-api.hushstackcambodia.site/api/auth/resend-otp" \
+    -F "email=hsomonor@gmail.com"
+  ```
+- View own profile:
+  ```bash
+  curl -X GET "https://social-api.hushstackcambodia.site/api/profile/me" \
+    -H "Authorization: Bearer <token>"
+  ```
+- Update profile (example without files):
+  ```bash
+  curl -X POST "https://social-api.hushstackcambodia.site/api/profile/update" \
+    -H "Authorization: Bearer <token>" \
+    -F "username=ceyzer_rarr" \
+    -F "first_name=HH" \
+    -F "last_name=LL" \
+    -F "bio=Hello" \
+    -F "note=Testing" \
+    -F "birth_of_date=2000-01-01" \
+    -F "age=25" \
+    -F "nationality_id=1" \
+    -F "contact_url=https://www.instagram.com/ceyzer_rarr/" \
+    -F "address=Phnom Penh"
+  # add -F "picture=@/path/to/pic.jpg" -F "cover=@/path/to/cover.jpg" to upload images
+  ```
+- Create post:
+  ```bash
+  curl -X POST "https://social-api.hushstackcambodia.site/api/posts" \
+    -H "Authorization: Bearer <token>" \
+    -F "caption=Welcome" \
+    -F "picture=@/path/to/photo.jpg"
+  ```
+- Own posts (photos):
+  ```bash
+  curl -X GET "https://social-api.hushstackcambodia.site/api/profile/posts/photos" \
+    -H "Authorization: Bearer <token>"
+  ```
+- Home feed:
+  ```bash
+  curl -X GET "https://social-api.hushstackcambodia.site/api/home-feed" \
+    -H "Authorization: Bearer <token>"
+  ```
+- Toggle like (post id 4 as example):
+  ```bash
+  curl -X POST "https://social-api.hushstackcambodia.site/api/posts/4/like-toggle" \
+    -H "Authorization: Bearer <token>"
+  ```
+- Notifications:
+  ```bash
+  curl -X GET "https://social-api.hushstackcambodia.site/api/notifications" \
+    -H "Authorization: Bearer <token>"
+  ```
 
 Testing Order
 - Register with new email → Verify OTP (or Resend OTP if needed) → Login → Test profile and social endpoints with the Bearer token.
