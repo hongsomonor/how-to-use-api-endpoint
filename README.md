@@ -1,7 +1,7 @@
 API Guide – Social Platform API V2
 
 Overview
-- Base URL placeholder: `{{base_url}}` (local dev defaults to `http://localhost:8000`).
+- Base URL: `https://social-api.hushstackcambodia.site`
 - Auth flow: Register → Verify OTP → Login → Use Bearer token for protected routes → Delete account.
 - All request/response bodies are JSON; requests below use `multipart/form-data` to match the current controllers.
 
@@ -68,7 +68,7 @@ Common Headers
 Quick cURL Samples
 - Register:
   ```bash
-  curl -X POST "{{base_url}}/api/auth/register" \
+  curl -X POST "https://social-api.hushstackcambodia.site/api/auth/register" \
     -F "username=hsomonor" \
     -F "first_name=Somonor" \
     -F "last_name=Hong" \
@@ -78,19 +78,19 @@ Quick cURL Samples
   ```
 - Verify OTP:
   ```bash
-  curl -X POST "{{base_url}}/api/auth/verify-otp" \
+  curl -X POST "https://social-api.hushstackcambodia.site/api/auth/verify-otp" \
     -F "email=hsomonor@gmail.com" \
     -F "otp_code=437013"
   ```
 - Login:
   ```bash
-  curl -X POST "{{base_url}}/api/auth/login" \
+  curl -X POST "https://social-api.hushstackcambodia.site/api/auth/login" \
     -F "email=hsomonor@gmail.com" \
     -F "password=Password123@"
   ```
 - Delete account:
   ```bash
-  curl -X DELETE "{{base_url}}/api/delete-account" \
+  curl -X DELETE "https://social-api.hushstackcambodia.site/api/delete-account" \
     -H "Authorization: Bearer <token>"
   ```
 
